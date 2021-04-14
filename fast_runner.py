@@ -1,12 +1,3 @@
-#
-# SPDX-FileCopyrightText: 2020 Idiap Research Institute <contact@idiap.ch>
-#
-# Written by Prabhu Teja <prabhu.teja@idiap.ch>,
-#            Florian Mai <florian.mai@idiap.ch>
-#            Thijs Vogels <thijs.vogels@epfl.ch>
-#
-# SPDX-License-Identifier: MIT
-#
 
 import argparse
 from functools import partial, update_wrapper
@@ -103,7 +94,6 @@ else:
 
 
 def main(early_stopping,optimizer_class_o,problem_o,num_evals_o,random_seed_o,path_o):
-    # config.set_framework('pytorch')
     config.set_early_stopping(early_stopping)
     optimizer_class = OPTIM_MAP[optimizer_class_o]
     hyperparams = OPTIM_PARAMETERS[optimizer_class_o]
@@ -115,16 +105,11 @@ def main(early_stopping,optimizer_class_o,problem_o,num_evals_o,random_seed_o,pa
         runner = LearningRateScheduleRunner
     tuner = RandomSearch(optimizer_class, hyperparams, sampler, runner=runner, ressources=num_evals_o)
     tuner.tune(problem_o, rerun_best_setting=False, output_dir=path_o, random_seed=random_seed_o, weight_decay=0)
-optims = ['adam','adamlr','adagrad','adamwclrdecay','sgd','sgdm','sgdmc','sgdmcwc','sgdmw','sgdmcwclr'] 
-##,'adamlr','adagrad','adamwclrdecay','sgd','sgdm','sgdmc','sgdmcwc','sgdmw','sgdmcwclr'
-##'cifar100_allcnnc','cifar10_3c3d','fmnist_2c2d','fmnist_vae', 
-##      'mnist_vae','quadratic_deep','svhn_wrn164','tolstoi_char_rnn','imdb_bilstm'
+optims = ['adam','adamlr','sgdmcwc','sgdmcwclr'] 
 
 
-problem_list = ['cifar100_allcnnc','cifar10_3c3d','fmnist_2c2d',
-               
-                ['fmnist_vae', 'mnist_vae','quadratic_deep','imdb_bilstm']     ,'svhn_wrn164','tolstoi_char_rnn',]
+problem_list = ['fmnist_vae','quadratic_deep','imdb_bilstm']
 for problem in problem_list:
     for i in optims:
 
-        main(False,i,problem,1,1337,r"output/"+i)
+        main(False,i,problem,30,1337,r"output/"+i)
