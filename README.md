@@ -8,6 +8,8 @@ Put my fast_runner to the root folder, it should work!
 
 To analiyze the outcome, put fast_compute_realtive_performances.py to the root folder. It generate graph with a single click.
 
+output.7z is contain my experiment comeout.
+
 Unfortunantaly, I had difficult automate analyze_tunability script. Seems like multi-process does not work well with my modfication :(
 Also, analyze_tunability script needs a PDF generation tool such as miktex.
 
