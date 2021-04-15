@@ -2,7 +2,10 @@
 
 The source code for the paper can be found in this https://github.com/idiap/hypaobp
 
-My code is entirely based on the author's source code. The original project has a specific set of required enviorment. After setting up the basecode. 
+My code is entirely based on the author's source code. The original project has a specific set of operating enviorment. During the enviorment setup process, the original environment setup file: spec-file.txt is not working. Seems like packages with .conda extension are repalced with .tar.bz2 in the repo.anaconda.com. 
+Use my spec-file-update.txt to create an environment
+
+After setting up the environment. 
 
 Put my fast_runner to the root folder, it should work!
 
@@ -10,7 +13,8 @@ To analiyze the outcome, put fast_compute_realtive_performances.py to the root f
 
 output.7z is contain my experiment comeout.
 
-Unfortunantaly, I had difficult automate analyze_tunability script. Seems like multi-process does not work well with my modfication :(
+analyze_tunability is used to generate figure 1 and figure 3 for my report.
+Unfortunantaly, I had difficulty automate analyze_tunability script. Seems like multi-process does not work well with my modfication :(
 Also, analyze_tunability script needs a PDF generation tool such as miktex.
 
 To generate Stacked Probability Plot as figure 6:
