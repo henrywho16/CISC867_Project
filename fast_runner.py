@@ -105,9 +105,18 @@ def main(early_stopping,optimizer_class_o,problem_o,num_evals_o,random_seed_o,pa
         runner = LearningRateScheduleRunner
     tuner = RandomSearch(optimizer_class, hyperparams, sampler, runner=runner, ressources=num_evals_o)
     tuner.tune(problem_o, rerun_best_setting=False, output_dir=path_o, random_seed=random_seed_o, weight_decay=0)
+    
+##instead of using a commandline script to run the code. 
+##I changed the code to automatically train model with a single click. It automatically train 30 models for each tasks with every optimizers.
+##here is a list of all optimizers supported by Deepobs package.
+##adam,'adamlr','adagrad','adamwclrdecay','sgd','sgdm','sgdmc','sgdmcwc','sgdmw','sgdmcwclr'
 optims = ['adam','adamlr','sgdmcwc','sgdmcwclr'] 
 
+##Here is a list of all supported training tasks. 
+##'cifar100_allcnnc','cifar10_3c3d','fmnist_2c2d','fmnist_vae', 
+##      'mnist_vae','quadratic_deep','imdb_bilstm'
 
+## 'svhn_wrn164' and 'tolstoi_char_rnn' are supported by the Deepobs package but I can not get them working.
 problem_list = ['fmnist_vae','quadratic_deep','imdb_bilstm']
 for problem in problem_list:
     for i in optims:
