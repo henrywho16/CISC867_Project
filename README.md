@@ -17,7 +17,12 @@ Relative Performance (Figure 4). Put fast_compute_relative_performances.py to th
 
 analyze_tunability: analyze_tunability is used to generate figure 1 and figure 3 for my report. It requires PDF generation tool such as miktex to work. Unfortunately, I had difficulty automate analyze_tunability script. Seems like multi-process does not work well with my modification :(
 
-Here is the command to generate box plot for it: : fmnist_vae, quadratic_deep,imdb_bilstm python analyze_tunability.py -inpath -optimizers adam adamlr sgdmcwc sgdmcwclr -problem -outfile -num_shuffle 100 add -print_metrics at end to generate performance metric. python analyze_tunability.py -inpath -optimizers adam adamlr sgdmcwc sgdmcwclr -problem -outfile -num_shuffle 100 -print_metrics
+Here is the command to generate box plot for it: 
+
+<problem>: fmnist_vae, quadratic_deep,imdb_bilstm 
+ python analyze_tunability.py -inpath -optimizers adam adamlr sgdmcwc sgdmcwclr -problem <problem> -outfile -num_shuffle 100 add -print_metrics at end to generate performance metric. 
+  
+ python analyze_tunability.py -inpath -optimizers adam adamlr sgdmcwc sgdmcwclr -problem <problem> -outfile -num_shuffle 100 -print_metrics
 
 To generate Stacked Probability Plot as figure 6:
 
