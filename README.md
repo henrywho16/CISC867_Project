@@ -1,21 +1,34 @@
 # CISC867 Reproducibility Project: Optimizer Benchmarking Needs to Account for Hyperparameter Tuning 
 
 The source code for the paper can be found in this https://github.com/idiap/hypaobp
+ 
+My code is entirely based on the author's source code. This github repositoy acts as a suppliment for the orginal source code.
 
-My code is entirely based on the author's source code. The original project has a specific set of operating enviorment. During the enviorment setup process, the original environment setup file: spec-file.txt is not working. Seems like packages with .conda extension are repalced with .tar.bz2 in the repo.anaconda.com. 
-Use my spec-file-update.txt to create an environment
+1. Clone the original soruce code.
 
-After setting up the environment. 
+2. Setup the environment.
 
-Put my fast_runner to the root folder, it should work!
+The original project has a specific set of operating enviorment. During the enviorment setup process, the original environment setup file: spec-file.txt is not working. Packages with .conda extension are repalced with .tar.bz2 in the repo.anaconda.com. 
+Instead use my spec-file-update.txt to create an environment
+After setting up the environment, all of the required packages for model training are installed.
 
-To analiyze the outcome, put fast_compute_realtive_performances.py to the root folder. It generate graph with a single click.
+3. Model training.
+Put my fast_runner to the root folder, double click and wait for 400+ hours.
+output.7z contains the result from my training.
 
-output.7z is contain my experiment comeout.
+4.Analize outcome. 
 
-analyze_tunability is used to generate figure 1 and figure 3 for my report.
+Relative Performance (Figure 4). Put fast_compute_realtive_performances.py to the root folder. It will generate relative performance for all optimizers in one click.
+
+analyze_tunability:
+analyze_tunability is used to generate figure 1 and figure 3 for my report. It requires PDF generation tool such as miktex to work.
 Unfortunantaly, I had difficulty automate analyze_tunability script. Seems like multi-process does not work well with my modfication :(
-Also, analyze_tunability script needs a PDF generation tool such as miktex.
+
+Here is the command to generate box plot for it:
+<problem> : fmnist_vae, quadratic_deep,imdb_bilstm
+python analyze_tunability.py -inpath <root path>-optimizers adam adamlr sgdmcwc sgdmcwclr -problem  <problem>  -outfile <problem>  -num_shuffle 100 
+add -print_metrics at end to generate performance metric.
+python analyze_tunability.py -inpath <root path>-optimizers adam adamlr sgdmcwc sgdmcwclr -problem  <problem>  -outfile <problem>  -num_shuffle 100 -print_metrics
 
 To generate Stacked Probability Plot as figure 6:
 
