@@ -20,10 +20,12 @@ analyze_tunability: analyze_tunability is used to generate figure 1 and figure 3
 Here is the command to generate box plot for it: 
 
 <problem>: fmnist_vae, quadratic_deep,imdb_bilstm 
- python analyze_tunability.py -inpath -optimizers adam adamlr sgdmcwc sgdmcwclr -problem <problem> -outfile -num_shuffle 100 add -print_metrics at end to generate performance metric. 
+ python analyze_tunability.py -inpath <Experiment-output-path> -optimizers adam adamlr sgdmcwc sgdmcwclr -problem <problem> -outfile -num_shuffle 100 add -print_metrics at end to generate performance metric. 
   
- python analyze_tunability.py -inpath -optimizers adam adamlr sgdmcwc sgdmcwclr -problem <problem> -outfile -num_shuffle 100 -print_metrics
+ python analyze_tunability.py -inpath <Experiment-output-path> -optimizers adam adamlr sgdmcwc sgdmcwclr -problem <problem> -outfile -num_shuffle 100 -print_metrics
 
 To generate Stacked Probability Plot as figure 6:
 
-python results_create_dataframe.py -inpath python results_process.py -inpath -budget 30 python results_analyze_winprob.py -inpath -optimizers adam adamlr sgdmcwc sgdmcwclr -budget 30 -global_averaging
+python results_create_dataframe.py -inpath <Experiment-output-path> 
+python results_create_dataframe.py -inpath <root-path> python results_process.py -inpath -budget 30 
+python results_analyze_winprob.py -inpath <root-path> -optimizers adam adamlr sgdmcwc sgdmcwclr -budget 30 -global_averaging
