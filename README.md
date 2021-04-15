@@ -1,4 +1,4 @@
-# CISC867 Reproducibility Project: Optimizer Benchmarking Needs to Account for Hyperparameter Tuning 
+# Reproducibility Project
 
 The source code for the paper can be found in this https://github.com/idiap/hypaobp
 
