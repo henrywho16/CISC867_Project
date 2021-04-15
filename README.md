@@ -4,14 +4,14 @@ The source code for the paper can be found in this https://github.com/idiap/hypa
 
 My code is entirely based on the author's source code. This github repository acts as a supplement for the original source code.
 
-Clone the original source code.
+1. Clone the original source code.
 
-Setup the environment.
+2. Setup the environment.
 
-The original project has a specific set of operating environment. During the environment setup process, the original environment setup file: spec-file.txt is not working. Packages with .conda extension are replaced with .tar.bz2 in the repo.anaconda.com. Instead use my spec-file-update.txt to create an environment After setting up the environment, all of the required packages for model training are installed.
+3. The original project has a specific set of operating environment. During the environment setup process, the original environment setup file: spec-file.txt is not working. Packages with .conda extension are replaced with .tar.bz2 in the repo.anaconda.com. Instead use my spec-file-update.txt to create an environment After setting up the environment, all of the required packages for model training are installed.
 
 Model training. Put my fast_runner to the root folder, double click and wait for 400+ hours. output.7z contains the result from my training.
-4.Analize outcome.
+4. Analyze outcome.
 
 Relative Performance (Figure 4). Put fast_compute_relative_performances.py to the root folder. It will generate relative performance for all optimizers in one click.
 
