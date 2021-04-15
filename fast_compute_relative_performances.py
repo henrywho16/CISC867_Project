@@ -1,13 +1,3 @@
-#
-# SPDX-FileCopyrightText: 2020 Idiap Research Institute <contact@idiap.ch>
-#
-# Written by Prabhu Teja <prabhu.teja@idiap.ch>,
-#            Florian Mai <florian.mai@idiap.ch>
-#            Thijs Vogels <thijs.vogels@epfl.ch>
-#
-# SPDX-License-Identifier: MIT
-#
-
 import os
 import sys
 import random
@@ -32,27 +22,6 @@ def main(Path,Problem,Optimizers,Num_shuffle):
     budget = 30
     outfile = Problem[0] +"_relative_performance"
     x_axis = "trials"
-
-    # plot configuration
-    #pgf_with_latex = {                      # setup matplotlib to use latex for output
-    #    "pgf.texsystem": "pdflatex",        # change this if using xetex or lautex
-    #    "text.usetex": args.usetex,                # use LaTeX to write all text
-    #    "font.family": "serif",
-    #    "font.serif": [],                   # blank entries should cause plots 
-    #    "font.sans-serif": [],              # to inherit fonts from the document
-    #    "font.monospace": [],
-    #    "axes.labelsize": 10,
-    #   "font.size": 10,
-    #    "legend.fontsize": 8,               # Make the legend/label fonts 
-    #    "xtick.labelsize": 14,               # a little smaller
-    #    "ytick.labelsize": 12,                                    # default fig size of 0.9 textwidth
-    #    "pgf.preamble": [
-    #        r"\usepackage[utf8]{inputenc}",    # use utf8 input and T1 fonts 
-    #        r"\usepackage[T1]{fontenc}",        # plots will be generated 
-    #        ]                                   # using this preamble
-    #    }
-    # mpl.use("pgf")
-    #mpl.rcParams.update(pgf_with_latex)
 
     random.seed(a=12) # fix random seed for when shuffling the random search results.
 
@@ -148,6 +117,8 @@ def main(Path,Problem,Optimizers,Num_shuffle):
     # plt.xticks(np.concatenate([x[:-1].astype(np.int32),x[-1].astype(np.float32)))
     plt.tight_layout(0)
     plt.savefig(outfile)
+    
+##instead of feeding argument into a commandline script. I turned it into a click and run script.
 p1= os.path.abspath(os.getcwd()) + "\\output"
 opt_list = ['adam','adamlr', 'sgdmcwc','sgdmcwclr']
 problem_lst = ['fmnist_vae','imdb_bilstm','quadratic_deep'] 
